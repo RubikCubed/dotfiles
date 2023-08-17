@@ -9,7 +9,7 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.oldmate.imports = [
+        home-manager.users.mate.imports = [
           ../user/base
           ../user/desktop
         ];
@@ -26,7 +26,7 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.oldmate = import ../user/base;
+        home-manager.users.mate = import ../user/base;
       }
     ];
   };

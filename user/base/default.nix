@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "oldmate";
-  home.homeDirectory = "/home/oldmate";
+  home.username = "mate";
+  home.homeDirectory = "/home/mate";
 
   home.packages = with pkgs; [
     fd
