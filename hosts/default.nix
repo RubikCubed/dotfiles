@@ -9,7 +9,10 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.oldmate = import ../home;
+        home-manager.users.oldmate.imports = [
+          ../user/base
+          ../user/desktop
+        ];
       }
     ];
   };
@@ -19,6 +22,12 @@
       { nix.registry.nixpkgs.flake = nixpkgs; }
       ./wsl
       nixos-wsl.nixosModules.wsl
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.oldmate = import ../user/base;
+      }
     ];
   };
 }

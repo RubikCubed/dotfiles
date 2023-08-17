@@ -4,7 +4,7 @@
   xsession.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
-    config = ./Main.hs;
+    config = ./xmonad/Main.hs;
   };
-  xdg.configFile."xmobar/xmobarrc".source = ./xmobarrc;
+  xdg.configFile."xmobar/xmobarrc".source = ./xmonad/xmobarrc;
 }
