@@ -4,6 +4,10 @@
   home.username = "mate";
   home.homeDirectory = "/home/mate";
 
+  imports = [
+    ./helix.nix
+  ];
+
   home.packages = with pkgs; [
     fd
     htop
