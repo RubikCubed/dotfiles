@@ -24,6 +24,7 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
+      fileWidgetOptions = [ "--preview 'bat --color=always {}'" ];
     };
 
     starship = {
