@@ -19,6 +19,8 @@
     # docker-desktop.enable = true;
   };
 
+  time.timeZone = "Australia/Sydney";
+
   users.users.mate = {
     isNormalUser = true;
     shell = pkgs.zsh;
