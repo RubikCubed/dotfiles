@@ -15,5 +15,5 @@ Currently I have `wsl` and `desktop` hosts.
 
 Requires you have flakes + nix-command experimental features enabled:
 
-`sudo nixos-rebuild switch --flake '~dotfiles#desktop'`
+`sudo nixos-rebuild switch --flake '~/dotfiles#desktop'`
 
