@@ -73,5 +73,20 @@
     home-manager.enable = true;
   };
 
+  home.shellAliases = {
+    ll = "exa -lFT --group-directories-first --color=always --git --git-ignore --level 1";
+    lla = "exa -laTF --group-directories-first --color=always --git --level 1";
+    llt = "exa -lTF --group-directories-first --color=always --git --git-ignore";
+    llta = "exa -laTF --group-directories-first --color=always --git";
+    ll2 = "exa -lTF --group-directories-first --color=always --git --git-ignore --level 2";
+    ll3 = "exa -lTF --group-directories-first --color=always --git --git-ignore --level 3";
+    ll4 = "exa -lTF --group-directories-first --color=always --git --git-ignore --level 4";
+    ll5 = "exa -lTF --group-directories-first --color=always --git --git-ignore --level 5";
+    ll2a = "exa -laTF --group-directories-first --color=always --git --level 2";
+    ll3a = "exa -laTF --group-directories-first --color=always --git --level 3";
+    ll4a = "exa -laTF --group-directories-first --color=always --git --level 4";
+    ll5a = "exa -laTF --group-directories-first --color=always --git --level 5";
+  };
+
   home.stateVersion = "23.05";
 }
