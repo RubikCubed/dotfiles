@@ -22,7 +22,6 @@
 
     direnv = {
       enable = true;
-      enableZshIntegration = true;
       nix-direnv.enable = true;
     };
 
@@ -34,7 +33,6 @@
 
     starship = {
       enable = true;
-      enableZshIntegration = true;
       settings = {
         add_newline = false;
         #nix_shell = {
