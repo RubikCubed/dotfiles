@@ -18,6 +18,7 @@
     bat.enable = true;
     exa.enable = true;
     git.enable = true;
+    fish.enable = true;
 
     direnv = {
       enable = true;
@@ -45,15 +46,6 @@
       };
     };
 
-    zsh = {
-      enable = true;
-      enableSyntaxHighlighting = true;
-      defaultKeymap = "emacs";
-      shellAliases = {
-        cat = "bat";
-      };
-    };
-  
     neovim = {
       enable = true;
       viAlias = true;
@@ -90,6 +82,7 @@
     ll3a = "exa -laTF --group-directories-first --color=always --git --level 3";
     ll4a = "exa -laTF --group-directories-first --color=always --git --level 4";
     ll5a = "exa -laTF --group-directories-first --color=always --git --level 5";
+    cat = "bat";
   };
 
   home.stateVersion = "23.05";

@@ -26,7 +26,10 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.mate = import ../user/base;
+        home-manager.users.mate.imports = [
+          ../user/base
+          ../user/development
+        ];
       }
     ];
   };

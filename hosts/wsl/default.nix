@@ -19,13 +19,16 @@
     # docker-desktop.enable = true;
   };
 
+  i18n.defaultLocale = "en_AU.UTF-8";
   time.timeZone = "Australia/Sydney";
+
+  nixpkgs.config.allowUnfree = true;
 
   users.users.mate = {
     isNormalUser = true;
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   # Enable nix flakes
   nix.package = pkgs.nixFlakes;

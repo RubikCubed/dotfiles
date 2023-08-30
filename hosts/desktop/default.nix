@@ -90,7 +90,7 @@
   users.users.mate = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     #packages = with pkgs; [
     #  firefox
     #];
@@ -105,8 +105,8 @@
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  programs.zsh.enable = true;
   # programs.mtr.enable = true;
+  programs.fish.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
