@@ -9,11 +9,14 @@ Super simple structure to rebuild my systems.
   - `desktop/` - additional desktop programs (browsers, GUI apps, etc)
   - `development/` - language servers, compilers, tools, repls, etc
 
-Currently I have `wsl` and `desktop` hosts.
+Current hosts:
+  - espresso (wsl)
+  - latte (laptop)
+  - affogato (desktop)
 
 ## Usage
 
 Requires you have flakes + nix-command experimental features enabled:
 
-`sudo nixos-rebuild switch --flake ~/dotfiles#desktop`
+`sudo nixos-rebuild switch --flake ~/dotfiles#affogato`
 
