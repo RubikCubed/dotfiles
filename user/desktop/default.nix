@@ -13,4 +13,6 @@
     picom
     rofi
   ];
+
+  #services.polybar.enable = true;
 }
