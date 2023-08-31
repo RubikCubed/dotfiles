@@ -1,10 +1,10 @@
 { self, nixpkgs, nixos-wsl, home-manager, ... }:
 
 {
-  desktop = nixpkgs.lib.nixosSystem {
+  affogato = nixpkgs.lib.nixosSystem { # desktop
     system = "x86_64-linux";
     modules = [
-      ./desktop
+      ./affogato
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -16,7 +16,22 @@
       }
     ];
   };
-  espresso = nixpkgs.lib.nixosSystem {
+  latte = nixpkgs.lib.nixosSystem { # laptop
+    system = "x86_64-linux";
+    modules = [
+      ./latte
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.mate.imports = [
+          ../user/base
+          ../user/desktop
+        ];
+      }
+    ];
+  };
+  espresso = nixpkgs.lib.nixosSystem { # wsl
     system = "x86_64-linux";
     modules = [
       { nix.registry.nixpkgs.flake = nixpkgs; }
