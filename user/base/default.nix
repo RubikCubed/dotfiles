@@ -6,6 +6,7 @@
 
   imports = [
     ./helix.nix
+    ./fish.nix
   ];
 
   home.packages = with pkgs; [
@@ -18,7 +19,6 @@
     bat.enable = true;
     exa.enable = true;
     git.enable = true;
-    fish.enable = true;
 
     direnv = {
       enable = true;
