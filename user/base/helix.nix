@@ -1,13 +1,17 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   home.sessionVariables.EDITOR = lib.getExe config.programs.helix.package;
 
   programs.helix = {
     enable = true;
 
     settings = {
-#      theme = "catppuccin_macchiato";
+      #      theme = "catppuccin_macchiato";
 
       editor = {
         line-number = "relative";
@@ -34,15 +38,15 @@
             space = "none";
             nbsp = "all";
             tab = "all";
-#            newline = "all";
+            #            newline = "all";
           };
           characters = {
             space = "·";
             nbsp = "⍽";
             tab = "→";
-#            newline = "⤶";
+            #            newline = "⤶";
           };
-       };
+        };
 
         lsp = {
           display-inlay-hints = true;
@@ -56,7 +60,8 @@
           name = "nix";
           language-server.command = lib.getExe pkgs.nil;
         }
-        { name = "haskell";
+        {
+          name = "haskell";
           config = {
             haskell.formattingProvider = "fourmolu";
           };
@@ -68,11 +73,16 @@
           file-types = ["cabal"];
           roots = ["*.cabal"];
           comment-token = "--";
-          language-server = { command = "haskell-language-server-wrapper"; args = ["--lsp"]; };
-          indent = { tab-width = 2; unit = "  "; };
+          language-server = {
+            command = "haskell-language-server-wrapper";
+            args = ["--lsp"];
+          };
+          indent = {
+            tab-width = 2;
+            unit = "  ";
+          };
         }
       ];
     };
   };
 }
-

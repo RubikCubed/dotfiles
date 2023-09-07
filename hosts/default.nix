@@ -1,7 +1,13 @@
-{ self, nixpkgs, nixos-wsl, home-manager, vscode-server, ... }:
-
 {
-  affogato = nixpkgs.lib.nixosSystem { # desktop
+  self,
+  nixpkgs,
+  nixos-wsl,
+  home-manager,
+  vscode-server,
+  ...
+}: {
+  # desktop
+  affogato = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
       ./affogato
@@ -16,7 +22,8 @@
       }
     ];
   };
-  latte = nixpkgs.lib.nixosSystem { # laptop
+  # laptop
+  latte = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
       ./latte
@@ -31,10 +38,11 @@
       }
     ];
   };
-  espresso = nixpkgs.lib.nixosSystem { # wsl
+  # wsl
+  espresso = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      { nix.registry.nixpkgs.flake = nixpkgs; }
+      {nix.registry.nixpkgs.flake = nixpkgs;}
       ./wsl
       nixos-wsl.nixosModules.wsl
       vscode-server.nixosModules.default

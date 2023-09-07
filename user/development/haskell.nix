@@ -1,55 +1,62 @@
-{ config, pkgs, ... }:
-
-let haskell = pkgs.haskell.packages.ghc92;
-    packages = p: with p; [
-/*  adjunctions
-    aeson
-    async
-    base
-    bytestring
-    comonad
-    constraints
-    containers
-    contravariant
-    criterion
-    data-fix
-    distributive
-    effectful
-    exceptions
-    free
-    foldl
-    kan-extensions
-    lens
-    megaparsec
-    mtl
-    parser-combinators
-*/  pretty-simple/*
-    prettyprinter
-    primitive
-    profunctors
-    QuickCheck
-    random
-    recursion-schemes
-    semigroupoids
-    text-short
-    stm
-    template-haskell
-    text
-    text-show
-    transformers
-    unordered-containers*/
-  ];
+{
+  config,
+  pkgs,
+  ...
+}: let
+  haskell = pkgs.haskell.packages.ghc92;
+  packages = p:
+    with p; [
+      /*
+      adjunctions
+      aeson
+      async
+      base
+      bytestring
+      comonad
+      constraints
+      containers
+      contravariant
+      criterion
+      data-fix
+      distributive
+      effectful
+      exceptions
+      free
+      foldl
+      kan-extensions
+      lens
+      megaparsec
+      mtl
+      parser-combinators
+      */
+      pretty-simple
+      /*
+      prettyprinter
+      primitive
+      profunctors
+      QuickCheck
+      random
+      recursion-schemes
+      semigroupoids
+      text-short
+      stm
+      template-haskell
+      text
+      text-show
+      transformers
+      unordered-containers
+      */
+    ];
 in {
-  home.packages = with pkgs; 
-  (with haskell; [
-#   cabal-fmt
+  home.packages = with pkgs; (with haskell; [
+    #   cabal-fmt
     cabal-install
-#   cabal-plan
+    #   cabal-plan
     fourmolu
     (ghcWithHoogle packages)
     haskell-language-server
     hlint
-#   ghcid
+    #   ghcid
   ]);
 
   home.file = {

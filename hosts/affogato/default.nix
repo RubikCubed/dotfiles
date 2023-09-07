@@ -1,21 +1,23 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
-
-{ config, lib, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:
-  builtins.elem (lib.getName pkg) [
-    # Add additional package names here
-    "nvidia-x11"
-    "nvidia-settings"
-  ];
+    builtins.elem (lib.getName pkg) [
+      # Add additional package names here
+      "nvidia-x11"
+      "nvidia-settings"
+    ];
 
   hardware.opengl = {
     enable = true;
@@ -26,7 +28,6 @@
   # Tell Xorg to use the nvidia driver (also valid for Wayland)
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
-
     # Modesetting is needed for most Wayland compositors
     modesetting.enable = true;
 
@@ -45,7 +46,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "affogato";
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -58,7 +59,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_AU.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -89,7 +90,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mate = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
     #packages = with pkgs; [
     #  firefox
@@ -146,4 +147,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 }
-
