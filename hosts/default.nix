@@ -1,4 +1,4 @@
-{ self, nixpkgs, nixos-wsl, home-manager, ... }:
+{ self, nixpkgs, nixos-wsl, home-manager, vscode-server, ... }:
 
 {
   affogato = nixpkgs.lib.nixosSystem { # desktop
@@ -37,6 +37,7 @@
       { nix.registry.nixpkgs.flake = nixpkgs; }
       ./wsl
       nixos-wsl.nixosModules.wsl
+      vscode-server.nixosModules.default
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;

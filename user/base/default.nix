@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.username = "mate";
   home.homeDirectory = "/home/mate";
 
@@ -14,7 +16,9 @@
     htop
     ripgrep
     wget
+    alejandra
   ];
+
   programs = {
     bat.enable = true;
     exa.enable = true;
@@ -28,7 +32,7 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
-      fileWidgetOptions = [ "--preview 'bat --color=always {}'" ];
+      fileWidgetOptions = ["--preview 'bat --color=always {}'"];
     };
 
     starship = {
@@ -39,8 +43,8 @@
         #  symbol = " ";
         #  format = "[$symbol]($style) ";
         #};
-#        hostname.format = "[$hostname]($style):";
-#        username.format = "[$user]($style)@";
+        #        hostname.format = "[$hostname]($style):";
+        #        username.format = "[$user]($style)@";
       };
     };
 
@@ -54,7 +58,7 @@
         gruvbox-nvim
         lightline-vim
       ];
-      extraPackages = with pkgs; [ rnix-lsp ];
+      extraPackages = with pkgs; [rnix-lsp];
       extraConfig = ''
         colorscheme gruvbox
         lua << EOF
