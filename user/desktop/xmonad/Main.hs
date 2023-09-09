@@ -14,9 +14,7 @@ myLayout = avoidStruts . smartSpacingWithEdge 8 $ tiled ||| Mirror tiled ||| Ful
     tiled = Tall 1 (3 / 100) (2 / 3)
 
 main :: IO ()
-main = do
-  h <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobarrc"
-  xmonad . ewmh . docks $ myConfig h
+main = xmonad . ewmh . docks $ myConfig
 
 fgColor, bgColor, accentColor :: String
 fgColor     = "#ebdbb2"
@@ -30,7 +28,7 @@ myManageHook = composeAll
   [ title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
   ]
 
-myConfig h = def
+myConfig = def
   { modMask            = mod4Mask
   , terminal           = "alacritty"
   , layoutHook         = myLayout
@@ -40,12 +38,6 @@ myConfig h = def
   , normalBorderColor  = accentColor
   , focusedBorderColor = fgColor
   , focusFollowsMouse  = False
-  , logHook            = dynamicLogWithPP $ def
-    { ppVisible = xmobarColor fgColor ""
-    , ppOutput  = hPutStrLn h
-    , ppCurrent = xmobarColor bgColor fgColor . wrap
-                            ("<box color=" <> fgColor <> "> ") " </box>"
-    }
   } `additionalKeysP` -- mimics windows bindings
     [ "<Print>"    ## spawn "scrot -q100 -e 'xclip -selection clipboard -target image/png -i $f; rm -f $f'"
     , "M1-<Print>" ## spawn "scrot -q100 -u -e 'xclip -selection clipboard -target image/png -i $f; rm -f $f'"
