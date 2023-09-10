@@ -11,13 +11,8 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
-
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      # Add additional package names here
-      "nvidia-x11"
-      "nvidia-settings"
-    ];
+ 
+  nixpkgs.config.allowUnfree = true;
 
   hardware.opengl = {
     enable = true;
@@ -26,7 +21,6 @@
   };
 
   # Tell Xorg to use the nvidia driver (also valid for Wayland)
-  services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     # Modesetting is needed for most Wayland compositors
     modesetting.enable = true;
@@ -67,10 +61,21 @@
   # };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.windowManager.xmonad = {
+  services.xserver = {
     enable = true;
-    enableContribAndExtras = true;
+
+    videoDrivers = ["nvidia"];
+
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+    };
+
+    displayManager.sessionCommands = ''
+      xrandr \
+        --output DP-4 --mode 1920x1080 --rate 144 --primary \
+        --output DP-0 --mode 1920x1080 --rate 144 --pos 1920x0 \
+      '';
   };
 
   # Configure keymap in X11
