@@ -38,6 +38,7 @@ myConfig = def
   , normalBorderColor  = accentColor
   , focusedBorderColor = fgColor
   , focusFollowsMouse  = False
+  , clickJustFocuses   = False
   } `additionalKeysP` -- mimics windows bindings
     [ "<Print>"    ## spawn "scrot -q100 -e 'xclip -selection clipboard -target image/png -i $f; rm -f $f'"
     , "M1-<Print>" ## spawn "scrot -q100 -u -e 'xclip -selection clipboard -target image/png -i $f; rm -f $f'"
