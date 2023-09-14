@@ -11,7 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
- 
+
   nixpkgs.config.allowUnfree = true;
 
   hardware.opengl = {
@@ -75,7 +75,7 @@
       xrandr \
         --output DP-4 --mode 1920x1080 --rate 144 --primary \
         --output DP-0 --mode 1920x1080 --rate 144 --pos 1920x0 \
-      '';
+    '';
   };
 
   # Configure keymap in X11

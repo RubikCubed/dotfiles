@@ -7,6 +7,7 @@
   imports = [
     ./alacritty.nix
     ./xmonad.nix
+    ./vscode.nix
   ];
 
   home.packages = with pkgs; [
