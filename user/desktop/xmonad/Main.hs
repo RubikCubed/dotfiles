@@ -25,7 +25,7 @@ accentColor = "#928374"
 dmenuRun = spawn "dmenu_run -l 10 -fn 'Iosevka-12' -nb '#282828' -nf '#ebdbb2' -sb '#fbf1c7' -sf '#3c3836' -p '-> ' &"
 
 myWorkspaces :: [String]
-myWorkspaces = ["dev", "www", "chat", "game", "music", "misc"]
+myWorkspaces = ["dev", "www", "chat", "game", "media", "misc"]
 
 myManageHook = composeAll
   [ title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
