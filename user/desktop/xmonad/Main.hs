@@ -8,6 +8,7 @@ import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Spacing (smartSpacingWithEdge)
 import XMonad.Util.Run (spawnPipe, hPutStrLn)
 import XMonad.Util.EZConfig (additionalKeysP)
+import Data.List (isInfixOf)
 
 myLayout = avoidStruts . smartSpacingWithEdge 8 $ tiled ||| Mirror tiled ||| Full
   where
@@ -28,7 +29,10 @@ myWorkspaces = ["dev", "www", "chat", "game", "music", "misc"]
 
 myManageHook = composeAll
   [ title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
+  , title ~? "Discord"             --> doShift ( myWorkspaces !! 2 )
   ]
+
+q ~? x = fmap (x `isInfixOf`) q
 
 myConfig = def
   { modMask            = mod4Mask

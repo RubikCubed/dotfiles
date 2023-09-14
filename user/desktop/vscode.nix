@@ -3,7 +3,7 @@
     enable = true;
     userSettings = {
       editor.fontFamily = "Iosevka";
-      editor.fontSize = 18;
+      editor.fontSize = 17;
       editor.fontLigatures = true;
       window.titleBarStyle = "custom";
     };
