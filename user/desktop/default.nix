@@ -11,14 +11,15 @@
   ];
 
   home.packages = with pkgs; [
+    discord
     dmenu
     firefox
     iosevka
-    picom
-    rofi
     scrot
     xclip
   ];
+
+  programs.rofi.enable = true;
 
   systemd.user.services.polybar.Unit.PartOf = lib.mkForce [];
   systemd.user.services.polybar.Install.WantedBy = lib.mkForce ["graphical-session.target"];

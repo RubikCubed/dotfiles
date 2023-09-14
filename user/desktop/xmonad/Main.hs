@@ -21,6 +21,8 @@ fgColor     = "#ebdbb2"
 bgColor     = "#282828"
 accentColor = "#928374"
 
+dmenuRun = spawn "dmenu_run -l 10 -fn 'Iosevka-12' -nb '#282828' -nf '#ebdbb2' -sb '#fbf1c7' -sf '#3c3836' -p '-> ' &"
+
 myWorkspaces :: [String]
 myWorkspaces = ["dev", "www", "chat", "game", "music", "misc"]
 
@@ -43,6 +45,7 @@ myConfig = def
     [ "<Print>"    ## spawn "scrot -q100 -e 'xclip -selection clipboard -target image/png -i $f; rm -f $f'"
     , "M1-<Print>" ## spawn "scrot -q100 -u -e 'xclip -selection clipboard -target image/png -i $f; rm -f $f'"
     , "M-S-s"      ## spawn "scrot -q100 -fs -e 'xclip -selection clipboard -target image/png -i $f; rm -f $f'"
+    , "M-p"        ## dmenuRun
     ]
 
 -- convenience functions
