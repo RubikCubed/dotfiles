@@ -19,6 +19,7 @@
     ripgrep
     wget
     alejandra
+    tldr
   ];
 
   colorScheme = let
