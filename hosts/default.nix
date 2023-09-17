@@ -4,6 +4,7 @@
   nixos-wsl,
   home-manager,
   vscode-server,
+  nix-colors,
   ...
 }: {
   # desktop
@@ -13,12 +14,19 @@
       ./affogato
       home-manager.nixosModules.home-manager
       {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.mate.imports = [
-          ../user/base
-          ../user/desktop
-        ];
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          sharedModules = [
+            nix-colors.homeManagerModules.default
+            ({lib, ...}: {options.colorScheme.hashedColors = with lib; mkOption {type = types.attrsOf types.str;};})
+          ];
+          extraSpecialArgs = {inherit nix-colors;};
+          users.mate.imports = [
+            ../user/base
+            ../user/desktop
+          ];
+        };
       }
     ];
   };

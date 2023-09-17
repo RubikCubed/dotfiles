@@ -1,12 +1,14 @@
-{...}: {
+{config, ...}: let
+  colors = config.colorScheme.hashedColors;
+in {
   programs.alacritty = {
     enable = true;
     settings = {
       env.TERM = "xterm-256color";
 
       window.padding = {
-        x = 15;
-        y = 15;
+        x = 10;
+        y = 10;
       };
 
       font = {
@@ -16,18 +18,35 @@
 
       colors = {
         primary = {
-          background = "#282828";
-          foreground = "#ebdbb2";
+          background = colors.base00;
+          foreground = colors.base05;
         };
+
+        cursor = {
+          text = colors.base00;
+          cursor = colors.base05;
+        };
+
         normal = {
-          black = "#32302f";
-          red = "#cc241d";
-          green = "#98971a";
-          yellow = "#d79921";
-          blue = "#458588";
-          magenta = "#b16286";
-          cyan = "#689d6a";
-          white = "#a89984";
+          black = colors.base01;
+          red = colors.base08;
+          green = colors.base0B;
+          yellow = colors.base0A;
+          blue = colors.base0D;
+          magenta = colors.base0E;
+          cyan = colors.base0C;
+          white = colors.base05;
+        };
+
+        bright = {
+          black = colors.base03;
+          red = colors.base08;
+          green = colors.base0B;
+          yellow = colors.base0A;
+          blue = colors.base0D;
+          magenta = colors.base0E;
+          cyan = colors.base0C;
+          white = colors.base07;
         };
       };
     };
