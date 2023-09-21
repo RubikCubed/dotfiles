@@ -4,6 +4,7 @@ Super simple structure to rebuild my systems.
 
 - `flake.nix` - entry point
 - `hosts/` - system specific information
+- `system/` - shared system config
 - `user/` - programs/home-manager
   - `base/` - shared config, all hosts currently use this
   - `desktop/` - additional desktop programs (browsers, GUI apps, etc)
