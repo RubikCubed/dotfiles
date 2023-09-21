@@ -1,6 +1,7 @@
 {-# OPTIONS_GHC -Wall #-}
 
 import XMonad
+import XMonad.Actions.Volume
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks (avoidStruts, docks)
 import XMonad.Hooks.DynamicLog
@@ -49,6 +50,8 @@ myConfig = def
     [ "<Print>"    ## spawn "scrot -q100 -e 'xclip -selection clipboard -target image/png -i $f; rm -f $f'"
     , "M1-<Print>" ## spawn "scrot -q100 -u -e 'xclip -selection clipboard -target image/png -i $f; rm -f $f'"
     , "M-S-s"      ## spawn "scrot -q100 -fs -e 'xclip -selection clipboard -target image/png -i $f; rm -f $f'"
+    , "M--"        ## (lowerVolume 5 *> getVolume >>= spawn . ("notify-send -t 1000 -a 'sysnotif' 'Volume' -h int:value:" ++) . show)
+    , "M-="        ## (raiseVolume 5 *> getVolume >>= spawn . ("notify-send -t 1000 -a 'sysnotif' 'Volume' -h int:value:" ++) . show)
     , "M-p"        ## dmenuRun
     ]
 

@@ -6,9 +6,12 @@ in {
     settings = {
       env.TERM = "xterm-256color";
 
-      window.padding = {
-        x = 10;
-        y = 10;
+      window = {
+        opacity = 0.9;
+        padding = {
+          x = 10;
+          y = 10;
+        };
       };
 
       font = {
