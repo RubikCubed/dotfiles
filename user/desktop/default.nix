@@ -29,7 +29,21 @@
   systemd.user.services.polybar.Install.WantedBy = lib.mkForce ["graphical-session.target"];
 
   services.autorandr.enable = true;
-  services.picom.enable = true;
+  services.picom = {
+    enable = true;
+    shadow = true;
+    shadowOffsets = [
+      12
+      12
+    ];
+    shadowExclude = [
+      "name ~= 'polybar'"
+    ];
+    shadowOpacity = 0.5;
+    settings = {
+      shadow-radius = 0;
+    };
+  };
 
   services.polybar = {
     enable = true;
