@@ -1,8 +1,8 @@
 {
-  config,
   pkgs,
   lib,
   nix-colors,
+  helix-master,
   ...
 }: {
   home.username = "mate";
@@ -20,6 +20,7 @@
     wget
     alejandra
     tldr
+    nil
   ];
 
   colorScheme = let

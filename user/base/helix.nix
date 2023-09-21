@@ -2,87 +2,79 @@
   config,
   pkgs,
   lib,
-  inputs,
+  helix-master,
   ...
 }: {
   home.sessionVariables.EDITOR = lib.getExe config.programs.helix.package;
 
   programs.helix = {
+    package = helix-master.packages."x86_64-linux".default;
     enable = true;
-
     settings = {
-      #      theme = "catppuccin_macchiato";
-
+      theme = "gruvbox";
+      icons = "nerdfonts";
       editor = {
         line-number = "relative";
-
-        completion-replace = true;
-
+        cursorline = true;
+        scrolloff = 5;
+        color-modes = true;
+        idle-timeout = 1;
+        true-color = true;
+        rainbow-brackets = false;
+        bufferline = "always";
         rulers = [100];
+        popup-border = "all";
+        soft-wrap.enable = true;
+        completion-replace = true;
+        cursor-word = true;
 
-        cursor-shape = {
-          insert = "bar";
-          normal = "block";
-          select = "underline";
-        };
-
-        indent-guides = {
-          render = false;
-          rainbow = "dim";
-        };
-
-        # rainbow-brackets = true;
-
-        whitespace = {
-          render = {
-            space = "none";
-            nbsp = "all";
-            tab = "all";
-            #            newline = "all";
-          };
-          characters = {
-            space = "·";
-            nbsp = "⍽";
-            tab = "→";
-            #            newline = "⤶";
-          };
+        sticky-context = {
+          enable = true;
+          indicator = false;
         };
 
         lsp = {
+          display-messages = true;
           display-inlay-hints = true;
         };
-      };
-    };
 
-    languages = {
-      language = [
-        {
-          name = "nix";
-          language-server.command = lib.getExe pkgs.nil;
-        }
-        {
-          name = "haskell";
-          config = {
-            haskell.formattingProvider = "fourmolu";
+        #whitespace.render = "all";
+        #whitespace.characters = {
+        #  space = "·";
+        #  nbsp = "⍽";
+        #  tab = "→";
+        #  newline = "⤶";
+        #};
+
+        gutters = ["diagnostics" "line-numbers" "spacer" "diff"];
+        statusline = {
+          mode-separator = "";
+          separator = "of";
+          left = ["mode" "selections" "file-type-icon" "file-type" "register" "spinner" "diagnostics"];
+          center = ["file-name"];
+          right = ["file-encoding" "file-line-ending" "position-percentage" "spacer" "separator" "total-line-numbers"];
+          mode = {
+            normal = "NORMAL";
+            insert = "INSERT";
+            select = "SELECT";
           };
-        }
-        {
-          name = "cabal";
-          scope = "source.cabal";
-          injection-regex = "cabal";
-          file-types = ["cabal"];
-          roots = ["*.cabal"];
-          comment-token = "--";
-          language-server = {
-            command = "haskell-language-server-wrapper";
-            args = ["--lsp"];
-          };
-          indent = {
-            tab-width = 2;
-            unit = "  ";
-          };
-        }
-      ];
+        };
+        indent-guides = {
+          render = false;
+          rainbow-option = "dim";
+        };
+      };
+
+      keys.normal = {
+        "X" = "extend_line_above";
+        "C-q" = ":bc";
+        "C-d" = ["half_page_down" "align_view_center"];
+        "C-u" = ["half_page_up" "align_view_center"];
+      };
+
+      keys.normal."\\" = {
+        "t" = [":vs ~/todo.md"];
+      };
     };
   };
 }
