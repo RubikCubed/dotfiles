@@ -21,7 +21,7 @@ main = xmonad . ewmh . docks $ myConfig
 fgColor, bgColor, accentColor :: String
 fgColor     = "#ebdbb2"
 bgColor     = "#282828"
-accentColor = "#928374"
+accentColor = "#665c54"
 
 dmenuRun = spawn "dmenu_run -l 10 -fn 'Iosevka-12' -nb '#282828' -nf '#ebdbb2' -sb '#fbf1c7' -sf '#3c3836' -p '-> ' &"
 
@@ -41,7 +41,7 @@ myConfig = def
   , layoutHook         = myLayout
   , manageHook         = myManageHook
   , workspaces         = myWorkspaces
-  , borderWidth        = 4
+  , borderWidth        = 2
   , normalBorderColor  = accentColor
   , focusedBorderColor = fgColor
   , focusFollowsMouse  = False
