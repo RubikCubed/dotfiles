@@ -16,3 +16,4 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@v20
         with:
           pr-title: "Update flake.lock"
+          pr-assignees: rubikcubed
