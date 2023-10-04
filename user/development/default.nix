@@ -4,8 +4,7 @@
   ...
 }: {
   imports = [
-    #./haskell.nix
-    #./xmonad.nix
+    ./haskell.nix
   ];
 
   home.packages = with pkgs; [
