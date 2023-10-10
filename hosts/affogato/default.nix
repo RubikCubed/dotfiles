@@ -24,6 +24,8 @@
 
   networking.hostName = "affogato";
 
+  programs.steam.enable = true;
+
   services.xserver = {
     enable = true;
 

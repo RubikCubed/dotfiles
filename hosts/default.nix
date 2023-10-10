@@ -5,7 +5,6 @@ inputs @ {
   home-manager,
   vscode-server,
   nix-colors,
-  helix-master,
   ...
 }: let
   sharedModules = [
@@ -20,7 +19,7 @@ inputs @ {
           nix-colors.homeManagerModules.default
           ({lib, ...}: {options.colorScheme.hashedColors = with lib; mkOption {type = types.attrsOf types.str;};})
         ];
-        extraSpecialArgs = {inherit nix-colors helix-master;};
+        extraSpecialArgs = {inherit nix-colors;};
       };
     }
   ];
