@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  haskell = pkgs.haskell.packages.ghc92;
+  haskell = pkgs.haskell.packages.ghc94;
   packages = p:
     with p; [
       /*
@@ -48,16 +48,16 @@
       */
     ];
 in {
-  home.packages = with pkgs; (with haskell; [
+  home.packages = with haskell; [
     #   cabal-fmt
     cabal-install
     #   cabal-plan
     fourmolu
     (ghcWithHoogle packages)
-    haskell-language-server
+#    haskell-language-server
     hlint
     #   ghcid
-  ]);
+  ];
 
   home.file = {
     ".ghc/ghci.conf".text = ''
