@@ -1,6 +1,7 @@
 {
   pkgs,
   nixpkgs,
+  config,
   ...
 }: {
   time.timeZone = "Australia/Sydney";
@@ -32,11 +33,25 @@
     };
   };
 
+  sops = {
+    defaultSopsFile = ./secrets.yaml;
+    age.keyFile = "/var/lib/key.age";
+    secrets.user_password = {
+      neededForUsers = true;
+      sopsFile = ./secrets.yaml;
+    };
+  };
+
   users = {
-    users.mate = {
-      isNormalUser = true;
-      extraGroups = ["wheel"];
-      shell = pkgs.fish;
+    mutableUsers = false;
+    users = {
+      root.shell = pkgs.fish;
+      mate = {
+        isNormalUser = true;
+        extraGroups = ["wheel"];
+        shell = pkgs.fish;
+        hashedPasswordFile = config.sops.secrets.user_password.path;
+      };
     };
   };
 
@@ -45,6 +60,7 @@
     git
     vim
     wget
+    sops
   ];
 
   documentation = {

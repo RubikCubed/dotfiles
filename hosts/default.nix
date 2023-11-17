@@ -5,11 +5,13 @@ inputs @ {
   home-manager,
   vscode-server,
   nix-colors,
+  sops-nix,
   ...
 }: let
   sharedModules = [
     {config._module.args = {inherit nixpkgs;};}
     ../system/base.nix
+    sops-nix.nixosModules.sops
     home-manager.nixosModules.default
     {
       home-manager = {
