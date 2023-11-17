@@ -79,6 +79,8 @@
     home-manager.enable = true;
   };
 
+  home.sessionVariables.EDITOR = "nvim";
+
   home.shellAliases = {
     ll = "eza -lFT --group-directories-first --color=always --git --git-ignore --level 1";
     lla = "eza -laTF --group-directories-first --color=always --git --level 1";
