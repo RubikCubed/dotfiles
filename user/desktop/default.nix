@@ -29,13 +29,13 @@
   services.picom = {
     enable = true;
     shadow = true;
-    shadowOffsets = [
-      12
-      12
-    ];
-    shadowOpacity = 0.5;
-    settings = {
-      shadow-radius = 0;
-    };
+    #    shadowOffsets = [
+    #      12
+    #      12
+    #    ];
+    #    shadowOpacity = 0.5;
+    #    settings = {
+    #      shadow-radius = 0;
+    #    };
   };
 }

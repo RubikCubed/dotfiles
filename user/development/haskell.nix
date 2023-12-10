@@ -54,7 +54,7 @@ in {
     #   cabal-plan
     fourmolu
     (ghcWithHoogle packages)
-#    haskell-language-server
+    #    haskell-language-server
     hlint
     #   ghcid
   ];
