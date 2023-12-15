@@ -16,12 +16,11 @@
     startMenuLaunchers = true;
     nativeSystemd = true;
 
-    # Enable native Docker support
-    # docker-native.enable = true;
-
     # Enable integration with Docker Desktop (needs to be installed)
-    # docker-desktop.enable = true;
+    #docker-desktop.enable = true;
   };
+
+  virtualisation.docker.enable = true;
 
   services.vscode-server.enable = true;
 

@@ -48,7 +48,7 @@
       root.shell = pkgs.fish;
       mate = {
         isNormalUser = true;
-        extraGroups = ["wheel"];
+        extraGroups = ["wheel" "docker"];
         shell = pkgs.fish;
         hashedPasswordFile = config.sops.secrets.user_password.path;
       };
