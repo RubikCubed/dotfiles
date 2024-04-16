@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   nix-colors,
@@ -19,6 +20,7 @@
     alejandra
     tldr
     nil
+    #rustup
   ];
 
   colorScheme = let
@@ -82,7 +84,7 @@
   home.sessionVariables.EDITOR = "nvim";
 
   home.shellAliases = {
-    ll = "eza -lFT --group-directories-first --color=always --git --git-ignore --level 1";
+    ll = "eza -lTF --group-directories-first --color=always --git --git-ignore --level 1";
     lla = "eza -laTF --group-directories-first --color=always --git --level 1";
     llt = "eza -lTF --group-directories-first --color=always --git --git-ignore";
     llta = "eza -laTF --group-directories-first --color=always --git";
