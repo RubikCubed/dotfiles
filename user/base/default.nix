@@ -25,7 +25,7 @@
 
   colorScheme = let
     scheme = nix-colors.colorSchemes.gruvbox-dark-medium;
-    hashedColors = lib.mapAttrs (_: color: "#${color}") scheme.colors;
+    hashedColors = lib.mapAttrs (_: color: "#${color}") scheme.palette;
   in
     scheme // {inherit hashedColors;};
 
@@ -68,13 +68,9 @@
         gruvbox-nvim
         lightline-vim
       ];
-      extraPackages = with pkgs; [rnix-lsp];
+      extraPackages = with pkgs; [nil];
       extraConfig = ''
         colorscheme gruvbox
-        lua << EOF
-        local lspc = require('lspconfig')
-        lspc.rnix.setup{}
-        EOF
       '';
     };
 

@@ -5,14 +5,15 @@
       set fish_greeting
       bind -k nul accept-autosuggestion
     '';
-  shellAbbrs = {
-    nr = {
-      expansion = "nix run nixpkgs#%";
-      setCursor = true;
-    };
-    ns = {
-      expansion = "nix shell nixpkgs#%";
-      setCursor = true;
+    shellAbbrs = {
+      nr = {
+        expansion = "nix run nixpkgs#%";
+        setCursor = true;
+      };
+      ns = {
+        expansion = "nix shell nixpkgs#%";
+        setCursor = true;
+      };
     };
   };
 }
