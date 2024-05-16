@@ -10,6 +10,7 @@
 
   imports = [
     ./fish.nix
+    ./git.nix
   ];
 
   home.packages = with pkgs; [
@@ -32,7 +33,6 @@
   programs = {
     bat.enable = true;
     eza.enable = true;
-    git.enable = true;
 
     direnv = {
       enable = true;
