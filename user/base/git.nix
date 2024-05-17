@@ -4,7 +4,7 @@
     userName = "RubikCubed";
     userEmail = "spider@tilde.cafe";
 
-    ignores = [ ".direnv/" ".envrc" "result" "result-doc" ];
+    ignores = [".direnv/" ".envrc" "result" "result-doc"];
 
     extraConfig = {
       init.defaultBranch = "main";
@@ -13,6 +13,6 @@
       user.signingKey = "~/.ssh/id_ed25519.pub";
     };
 
-    delta.enable = true;
+#    delta.enable = true;
   };
 }

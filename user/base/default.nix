@@ -64,13 +64,16 @@
       vimAlias = true;
       plugins = with pkgs.vimPlugins; [
         nvim-lspconfig
-        vim-nix
         gruvbox-nvim
         lightline-vim
       ];
-      extraPackages = with pkgs; [nil];
+      extraPackages = [ pkgs.nil ];
       extraConfig = ''
         colorscheme gruvbox
+
+        lua <<EOF
+        require('lspconfig').nil_ls.setup{}
+        EOF
       '';
     };
 
