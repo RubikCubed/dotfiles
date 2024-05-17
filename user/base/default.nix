@@ -41,7 +41,7 @@
 
     fzf = {
       enable = true;
-      enableZshIntegration = true;
+      enableFishIntegration = true;
       fileWidgetOptions = ["--preview 'bat --color=always {}'"];
     };
 
