@@ -4,24 +4,20 @@ inputs @ {
   nixos-wsl,
   home-manager,
   vscode-server,
-  nix-colors,
+  stylix,
   sops-nix,
   ...
 }: let
   sharedModules = [
     {config._module.args = {inherit nixpkgs;};}
     ../system/base.nix
+    stylix.nixosModules.stylix
     sops-nix.nixosModules.sops
     home-manager.nixosModules.default
     {
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
-        sharedModules = [
-          nix-colors.homeManagerModules.default
-          ({lib, ...}: {options.colorScheme.hashedColors = with lib; mkOption {type = types.attrsOf types.str;};})
-        ];
-        extraSpecialArgs = {inherit nix-colors;};
       };
     }
   ];

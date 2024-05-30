@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  nix-colors,
   ...
 }: {
   home.username = "mate";
@@ -23,12 +22,6 @@
     nil
     #rustup
   ];
-
-  colorScheme = let
-    scheme = nix-colors.colorSchemes.gruvbox-dark-medium;
-    hashedColors = lib.mapAttrs (_: color: "#${color}") scheme.palette;
-  in
-    scheme // {inherit hashedColors;};
 
   programs = {
     bat.enable = true;
@@ -67,7 +60,7 @@
         gruvbox-nvim
         lightline-vim
       ];
-      extraPackages = [ pkgs.nil ];
+      extraPackages = [pkgs.nil];
       extraConfig = ''
         colorscheme gruvbox
 
