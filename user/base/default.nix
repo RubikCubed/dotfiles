@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   nix-colors,
@@ -21,7 +20,6 @@
     alejandra
     tldr
     nil
-    #rustup
   ];
 
   colorScheme = let
@@ -49,12 +47,6 @@
       enable = true;
       settings = {
         add_newline = false;
-        #nix_shell = {
-        #  symbol = " ";
-        #  format = "[$symbol]($style) ";
-        #};
-        #        hostname.format = "[$hostname]($style):";
-        #        username.format = "[$user]($style)@";
       };
     };
 
@@ -65,14 +57,19 @@
       plugins = with pkgs.vimPlugins; [
         nvim-lspconfig
         gruvbox-nvim
-        lightline-vim
+        lualine-nvim
       ];
-      extraPackages = [ pkgs.nil ];
+      extraPackages = [pkgs.nil];
       extraConfig = ''
         colorscheme gruvbox
 
-        lua <<EOF
+        lua << EOF
         require('lspconfig').nil_ls.setup{}
+        require('lualine').setup {
+          options = {
+            theme = 'gruvbox'
+          }
+        }
         EOF
       '';
     };
