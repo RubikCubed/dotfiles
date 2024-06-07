@@ -10,6 +10,7 @@
   imports = [
     ./fish.nix
     ./git.nix
+    ./nvim.nix
   ];
 
   home.packages = with pkgs; [
@@ -48,34 +49,6 @@
       settings = {
         add_newline = false;
       };
-    };
-
-    neovim = {
-      enable = true;
-      viAlias = true;
-      vimAlias = true;
-      plugins = with pkgs.vimPlugins; [
-        nvim-lspconfig
-        gruvbox-nvim
-        lualine-nvim
-        gitsigns-nvim
-      ];
-      extraPackages = [pkgs.nil];
-      extraConfig = ''
-        set number
-        set noshowmode
-        colorscheme gruvbox
-
-        lua << EOF
-        require('lspconfig').nil_ls.setup{}
-        require('gitsigns').setup()
-        require('lualine').setup {
-          options = {
-            theme = 'gruvbox'
-          }
-        }
-        EOF
-      '';
     };
 
     home-manager.enable = true;
