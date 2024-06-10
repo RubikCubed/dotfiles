@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  nix-colors,
   ...
 }: {
   home.username = "mate";
@@ -22,12 +21,6 @@
     tldr
     nil
   ];
-
-  colorScheme = let
-    scheme = nix-colors.colorSchemes.gruvbox-dark-medium;
-    hashedColors = lib.mapAttrs (_: color: "#${color}") scheme.palette;
-  in
-    scheme // {inherit hashedColors;};
 
   programs = {
     bat.enable = true;

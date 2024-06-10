@@ -26,6 +26,18 @@
 
   programs.steam.enable = true;
 
+  stylix = {
+    fonts = {
+      monospace = {
+        package = pkgs.iosevka;
+        name = "Iosevka";
+      };
+    };
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    image = ../../images/wallpaper.png;
+  };
+
   services.xserver = {
     enable = true;
 
