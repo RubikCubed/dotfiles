@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -10,6 +9,7 @@
   imports = [
     ./fish.nix
     ./git.nix
+    ./nvim.nix
   ];
 
   home.packages = with pkgs; [
@@ -20,7 +20,6 @@
     alejandra
     tldr
     nil
-    #rustup
   ];
 
   programs = {
@@ -42,32 +41,7 @@
       enable = true;
       settings = {
         add_newline = false;
-        #nix_shell = {
-        #  symbol = " ";
-        #  format = "[$symbol]($style) ";
-        #};
-        #        hostname.format = "[$hostname]($style):";
-        #        username.format = "[$user]($style)@";
       };
-    };
-
-    neovim = {
-      enable = true;
-      viAlias = true;
-      vimAlias = true;
-      plugins = with pkgs.vimPlugins; [
-        nvim-lspconfig
-        gruvbox-nvim
-        lightline-vim
-      ];
-      extraPackages = [pkgs.nil];
-      extraConfig = ''
-        colorscheme gruvbox
-
-        lua <<EOF
-        require('lspconfig').nil_ls.setup{}
-        EOF
-      '';
     };
 
     home-manager.enable = true;
