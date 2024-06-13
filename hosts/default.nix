@@ -37,6 +37,21 @@ in {
         }
       ];
   };
+  # desktop - hyprland version
+  hyprland = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    modules =
+      sharedModules
+      ++ [
+        ./hyprland
+        {
+          home-manager.users.mate.imports = [
+            ../user/base
+            ../user/desktop
+          ];
+        }
+      ];
+  };
   # laptop
   latte = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
