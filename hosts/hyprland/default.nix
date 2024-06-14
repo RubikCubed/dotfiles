@@ -40,13 +40,19 @@
 
   programs.hyprland.enable = true;
 
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    #package = config.boot.kernelPackages.nvidiaPackages.beta;
+    nvidiaSettings = true;
+  };
+
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    haskellPackages.xmobar
-  ];
+  environment.sessionVariables.NIXOS_OSONE_WL = "1";
 
   services.openssh.enable = true;
 

@@ -37,8 +37,8 @@ in {
       bind = $mod, space, layoutmsg, orientationcycle left top
       ${workspaces}
 
-      monitor=DP-2, 1920x1080@60, auto, 1
-      monitor=DP-3, 1920x1080@60, auto, 1
+      monitor=DP-1, 1920x1080@144, 1920x0, 1
+      monitor=DP-3, 1920x1080@144, 0x0, 1
 
       misc {
         disable_hyprland_logo = true
