@@ -20,7 +20,7 @@
   ];
 
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.latest;
 
     registry = {
       nixpkgs.flake = nixpkgs;
