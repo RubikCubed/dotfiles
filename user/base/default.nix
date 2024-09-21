@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   ...
 }: {
   home.username = "mate";

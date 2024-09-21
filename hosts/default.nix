@@ -1,5 +1,4 @@
-inputs @ {
-  self,
+{
   nixpkgs,
   nixos-wsl,
   home-manager,
