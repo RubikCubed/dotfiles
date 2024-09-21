@@ -2,10 +2,12 @@
   programs.vscode = {
     enable = true;
     userSettings = {
-      editor.fontFamily = "Iosevka";
-      editor.fontSize = 17;
-      editor.fontLigatures = true;
-      window.titleBarStyle = "custom";
+      editor = {
+        fontFamily = "Iosevka";
+        fontSize = 17;
+        fontLigatures = true;
+        titleBarStyle = "custom";
+      };
     };
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
