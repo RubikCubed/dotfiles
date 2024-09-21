@@ -67,6 +67,8 @@
     sops
   ];
 
+  boot.loader.systemd-boot.configurationLimit = 10;
+
   documentation = {
     enable = true;
     nixos.enable = true;
