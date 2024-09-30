@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
 
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix/cf8b6e2d4e8aca8ef14b839a906ab5eb98b08561";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
