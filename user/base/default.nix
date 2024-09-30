@@ -17,6 +17,7 @@
       alejandra
       tldr
       nil
+      devenv
     ];
   };
 
