@@ -14,6 +14,10 @@
     #docker-desktop.enable = true;
   };
 
+  environment.variables = {
+    COLORTERM = "truecolor";
+  };
+
   virtualisation.docker.enable = true;
 
   services.vscode-server.enable = true;
