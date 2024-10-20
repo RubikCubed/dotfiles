@@ -8,6 +8,7 @@
       gruvbox-nvim
       lualine-nvim
       gitsigns-nvim
+      nvim-treesitter.withAllGrammars
     ];
     extraPackages = [pkgs.nil];
     extraConfig = ''
