@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./alacritty.nix
+    #    ./alacritty.nix
     ./xmonad.nix
     ./vscode.nix
     ./dunst.nix
@@ -31,5 +31,9 @@
     #    settings = {
     #      shadow-radius = 0;
     #    };
+  };
+
+  xdg.configFile = {
+    "ghostty/config".text = builtins.readFile ./ghostty/config;
   };
 }

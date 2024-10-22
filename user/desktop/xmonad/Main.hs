@@ -37,7 +37,7 @@ q ~? x = fmap (x `isInfixOf`) q
 
 myConfig = def
   { modMask            = mod4Mask
-  , terminal           = "alacritty"
+  , terminal           = "ghostty"
   , layoutHook         = myLayout
   , manageHook         = myManageHook
   , workspaces         = myWorkspaces
