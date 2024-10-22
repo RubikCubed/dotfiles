@@ -18,6 +18,13 @@
 
   programs.rofi.enable = true;
   programs.firefox.enable = true;
+  gtk = {
+    enable = true;
+    theme = {
+      name = "gruvbox-dark";
+      package = pkgs.gruvbox-dark-gtk;
+    };
+  };
 
   services.autorandr.enable = true;
   services.picom = {
