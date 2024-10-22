@@ -7,9 +7,10 @@
     ./hardware-configuration.nix
   ];
 
+  hardware.nvidia.open = false;
+
   hardware.opengl = {
     enable = true;
-    driSupport = true;
     driSupport32Bit = true;
   };
 
@@ -65,10 +66,6 @@
       '';
     };
   };
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   environment.systemPackages = with pkgs; [
     haskellPackages.xmobar
