@@ -13,9 +13,9 @@
 
   hardware.nvidia.open = false;
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   # Use the systemd-boot EFI boot loader.
