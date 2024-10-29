@@ -21,6 +21,12 @@
     ];
   };
 
+  programs.doom-emacs = {
+    enable = true;
+    doomDir = ../doom.d;
+    experimentalFetchTree = true; # Disable if there are fetcher issues
+  };
+
   programs = {
     bat.enable = true;
     eza.enable = true;

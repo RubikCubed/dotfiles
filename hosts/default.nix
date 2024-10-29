@@ -6,6 +6,7 @@
   stylix,
   sops-nix,
   ghostty,
+  doom-emacs,
   ...
 }: let
   sharedModules = [
@@ -65,6 +66,7 @@ in {
           home-manager.users.mate.imports = [
             ../user/base
             ../user/development
+            doom-emacs.hmModule
           ];
         }
       ];
