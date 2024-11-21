@@ -1,4 +1,5 @@
 {
+  self,
   nixpkgs,
   nixos-wsl,
   home-manager,
@@ -6,7 +7,6 @@
   stylix,
   sops-nix,
   ghostty,
-  ...
 }: let
   sharedModules = [
     {config._module.args = {inherit nixpkgs ghostty;};}
