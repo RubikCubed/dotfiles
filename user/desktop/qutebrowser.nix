@@ -1,6 +1,4 @@
-{config, ...}: let
-  colors = config.colorScheme.hashedColors;
-in {
+_: {
   programs.qutebrowser = {
     enable = true;
     settings = {

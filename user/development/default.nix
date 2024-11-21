@@ -1,10 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    ./haskell.nix
+    #    ./haskell.nix
   ];
 
   home.packages = with pkgs; [

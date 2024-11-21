@@ -1,10 +1,4 @@
-{
-  lib,
-  pkgs,
-  config,
-  modulesPath,
-  ...
-}: {
+{modulesPath, ...}: {
   imports = [
     "${modulesPath}/profiles/minimal.nix"
   ];
@@ -18,6 +12,10 @@
 
     # Enable integration with Docker Desktop (needs to be installed)
     #docker-desktop.enable = true;
+  };
+
+  environment.variables = {
+    COLORTERM = "truecolor";
   };
 
   virtualisation.docker.enable = true;

@@ -1,26 +1,25 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
-  home.username = "mate";
-  home.homeDirectory = "/home/mate";
-
+{pkgs, ...}: {
   imports = [
     ./fish.nix
     ./git.nix
     ./nvim.nix
   ];
 
-  home.packages = with pkgs; [
-    fd
-    htop
-    ripgrep
-    wget
-    alejandra
-    tldr
-    nil
-  ];
+  home = {
+    username = "mate";
+    homeDirectory = "/home/mate";
+
+    packages = with pkgs; [
+      fd
+      htop
+      ripgrep
+      wget
+      alejandra
+      tldr
+      nil
+      devenv
+    ];
+  };
 
   programs = {
     bat.enable = true;
@@ -28,6 +27,7 @@
 
     direnv = {
       enable = true;
+      silent = true;
       nix-direnv.enable = true;
     };
 

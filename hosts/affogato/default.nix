@@ -2,9 +2,8 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 {
-  config,
-  lib,
   pkgs,
+  ghostty,
   ...
 }: {
   imports = [
@@ -12,10 +11,11 @@
     ./hardware-configuration.nix
   ];
 
-  hardware.opengl = {
+  hardware.nvidia.open = false;
+
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   # Use the systemd-boot EFI boot loader.
@@ -25,6 +25,7 @@
   networking.hostName = "affogato";
 
   programs.steam.enable = true;
+  programs.dconf.enable = true;
 
   stylix = {
     fonts = {
@@ -71,12 +72,10 @@
     };
   };
 
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
   environment.systemPackages = with pkgs; [
     haskellPackages.xmobar
+    ghostty.packages.x86_64-linux.default
+    xdg-utils
   ];
 
   services.openssh.enable = true;
