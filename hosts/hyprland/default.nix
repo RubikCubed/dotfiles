@@ -2,9 +2,8 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 {
-  config,
-  lib,
   pkgs,
+  ghostty,
   ...
 }: {
   imports = [
@@ -12,11 +11,12 @@
     ./hardware-configuration.nix
   ];
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
+
+  hardware.nvidia.open = false;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -48,11 +48,12 @@
     nvidiaSettings = true;
   };
 
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  environment.sessionVariables.NIXOS_OSONE_WL = "1";
+  environment.systemPackages = with pkgs; [
+    ghostty.packages.x86_64-linux.default
+    xdg-utils
+  ];
 
   services.openssh.enable = true;
 

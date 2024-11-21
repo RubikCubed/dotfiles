@@ -1,15 +1,15 @@
-inputs @ {
-  self,
+{
   nixpkgs,
   nixos-wsl,
   home-manager,
   vscode-server,
   stylix,
   sops-nix,
+  ghostty,
   ...
 }: let
   sharedModules = [
-    {config._module.args = {inherit nixpkgs;};}
+    {config._module.args = {inherit nixpkgs ghostty;};}
     ../system/base.nix
     stylix.nixosModules.stylix
     sops-nix.nixosModules.sops

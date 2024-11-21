@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: let
-  colors = config.colorScheme.hashedColors;
-in {
+{lib, ...}: {
   programs.alacritty = {
     enable = true;
     settings = {

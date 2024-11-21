@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
 
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix/cf8b6e2d4e8aca8ef14b839a906ab5eb98b08561";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -21,6 +21,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
   };
 
   outputs = inputs: {
