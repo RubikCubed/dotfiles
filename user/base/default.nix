@@ -16,14 +16,22 @@
       wget
       alejandra
       tldr
-      nil
       devenv
+      nixd
     ];
   };
 
   programs = {
     bat.enable = true;
     eza.enable = true;
+
+    helix = {
+      enable = true;
+      defaultEditor = true;
+      settings = {
+        theme = "gruvbox";
+      };
+    };
 
     direnv = {
       enable = true;
@@ -46,8 +54,6 @@
 
     home-manager.enable = true;
   };
-
-  home.sessionVariables.EDITOR = "nvim";
 
   home.shellAliases = {
     ll = "eza -lTF --group-directories-first --color=always --git --git-ignore --level 1";
