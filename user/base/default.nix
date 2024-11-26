@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  helix,
+  ...
+}: {
   imports = [
     ./fish.nix
     ./git.nix
@@ -31,6 +35,7 @@
       settings = {
         theme = "gruvbox";
       };
+      package = helix.packages.x86_64-linux.default;
     };
 
     direnv = {

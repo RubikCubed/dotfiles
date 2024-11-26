@@ -7,6 +7,7 @@
   stylix,
   sops-nix,
   ghostty,
+  helix,
 }: let
   sharedModules = [
     {config._module.args = {inherit nixpkgs ghostty;};}
@@ -18,6 +19,7 @@
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
+        extraSpecialArgs = {inherit helix;};
       };
     }
   ];
