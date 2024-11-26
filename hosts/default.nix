@@ -1,4 +1,5 @@
 {
+  self,
   nixpkgs,
   nixos-wsl,
   home-manager,
@@ -6,8 +7,6 @@
   stylix,
   sops-nix,
   ghostty,
-  doom-emacs,
-  ...
 }: let
   sharedModules = [
     {config._module.args = {inherit nixpkgs ghostty;};}
@@ -30,6 +29,21 @@ in {
       sharedModules
       ++ [
         ./affogato
+        {
+          home-manager.users.mate.imports = [
+            ../user/base
+            ../user/desktop
+          ];
+        }
+      ];
+  };
+  # desktop - hyprland version
+  hyprland = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    modules =
+      sharedModules
+      ++ [
+        ./hyprland
         {
           home-manager.users.mate.imports = [
             ../user/base
@@ -66,7 +80,6 @@ in {
           home-manager.users.mate.imports = [
             ../user/base
             ../user/development
-            doom-emacs.hmModule
           ];
         }
       ];

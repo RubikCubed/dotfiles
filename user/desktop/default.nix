@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    #    ./alacritty.nix
-    ./xmonad.nix
+    ./hyprland.nix
     ./vscode.nix
     ./dunst.nix
     ./qutebrowser.nix
@@ -16,28 +15,24 @@
     libnotify
   ];
 
-  programs.rofi.enable = true;
+  programs.wofi.enable = true;
   programs.firefox.enable = true;
+  programs.waybar = {
+    enable = true;
+    systemd.enable = true;
+    settings = {
+      mainBar = {
+        modules-left = ["hyprland/workspaces"];
+      };
+    };
+  };
+
   gtk = {
     enable = true;
     theme = {
       name = "gruvbox-dark";
       package = pkgs.gruvbox-dark-gtk;
     };
-  };
-
-  services.autorandr.enable = true;
-  services.picom = {
-    enable = true;
-    shadow = true;
-    #    shadowOffsets = [
-    #      12
-    #      12
-    #    ];
-    #    shadowOpacity = 0.5;
-    #    settings = {
-    #      shadow-radius = 0;
-    #    };
   };
 
   xdg.configFile = {
