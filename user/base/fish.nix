@@ -15,6 +15,9 @@ _: {
         expansion = "nix shell nixpkgs#%";
         setCursor = true;
       };
+      nvd = {
+        expansion = "nvd diff (command ls -dv /nix/var/nix/profiles/system-*-link | tail -2)";
+      };
     };
   };
 }

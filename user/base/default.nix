@@ -22,6 +22,7 @@
       tldr
       devenv
       nixd
+      nvd
     ];
   };
 
