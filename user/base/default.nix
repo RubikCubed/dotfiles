@@ -1,6 +1,6 @@
 {
   pkgs,
-  helix,
+  inputs,
   ...
 }: {
   imports = [
@@ -36,7 +36,7 @@
       settings = {
         theme = "gruvbox";
       };
-      package = helix.packages.x86_64-linux.default;
+      package = inputs.helix.packages.x86_64-linux.default;
     };
 
     direnv = {

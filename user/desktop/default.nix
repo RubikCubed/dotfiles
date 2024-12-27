@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hyprland.nix
     ./vscode.nix
@@ -13,6 +17,7 @@
     scrot
     xclip
     libnotify
+    inputs.ghostty.packages.x86_64-linux.default
   ];
 
   programs.wofi.enable = true;

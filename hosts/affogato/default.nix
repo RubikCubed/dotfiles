@@ -25,7 +25,6 @@
   networking.hostName = "affogato";
 
   programs.steam.enable = true;
-  programs.dconf.enable = true;
 
   stylix = {
     fonts = {

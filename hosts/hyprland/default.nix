@@ -50,11 +50,6 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  environment.systemPackages = with pkgs; [
-    ghostty.packages.x86_64-linux.default
-    xdg-utils
-  ];
-
   services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default

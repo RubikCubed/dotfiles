@@ -1,11 +1,11 @@
 {
   pkgs,
-  nixpkgs,
-  config,
-  lib,
+  inputs,
   ...
 }: {
   imports = [
+    inputs.sops-nix.nixosModules.sops
+    inputs.stylix.nixosModules.stylix
     ./users.nix
     ./nix
   ];
