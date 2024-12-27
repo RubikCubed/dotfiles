@@ -9,6 +9,8 @@
   ghostty,
   helix,
 }: let
+  inherit (nixpkgs.lib) nixosSystem;
+
   sharedModules = [
     {config._module.args = {inherit nixpkgs ghostty;};}
     ../system/base.nix
@@ -25,7 +27,7 @@
   ];
 in {
   # desktop
-  affogato = nixpkgs.lib.nixosSystem {
+  affogato = nixosSystem {
     system = "x86_64-linux";
     modules =
       sharedModules
@@ -40,7 +42,7 @@ in {
       ];
   };
   # desktop - hyprland version
-  hyprland = nixpkgs.lib.nixosSystem {
+  hyprland = nixosSystem {
     system = "x86_64-linux";
     modules =
       sharedModules
@@ -55,7 +57,7 @@ in {
       ];
   };
   # laptop
-  latte = nixpkgs.lib.nixosSystem {
+  latte = nixosSystem {
     system = "x86_64-linux";
     modules =
       sharedModules
@@ -70,7 +72,7 @@ in {
       ];
   };
   # wsl
-  espresso = nixpkgs.lib.nixosSystem {
+  espresso = nixosSystem {
     system = "x86_64-linux";
     modules =
       sharedModules
