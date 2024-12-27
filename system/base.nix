@@ -5,6 +5,11 @@
   lib,
   ...
 }: {
+  imports = [
+    ./users.nix
+    ./nix
+  ];
+
   time.timeZone = "Australia/Sydney";
   i18n.defaultLocale = "en_AU.UTF-8";
 
@@ -17,30 +22,6 @@
     (nerdfonts.override {fonts = ["Iosevka"];})
   ];
 
-  nix = {
-    package = pkgs.nixVersions.latest;
-
-    registry = {
-      nixpkgs.flake = nixpkgs;
-      flakes.to = {
-        owner = "RubikCubed";
-        repo = "flakes";
-        type = "github";
-      };
-    };
-
-    settings = {
-      experimental-features = ["nix-command" "flakes"];
-      auto-optimise-store = true;
-
-      trusted-users = ["root" "@wheel"];
-      substituters = ["https://devenv.cachix.org"];
-      trusted-public-keys = [
-        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
-      ];
-    };
-  };
-
   sops = {
     defaultSopsFile = ./secrets.yaml;
     age.keyFile = "/var/lib/key.age";
@@ -50,24 +31,8 @@
     };
   };
 
-  users = {
-    mutableUsers = false;
-    users = {
-      root.shell = pkgs.fish;
-      mate = {
-        isNormalUser = true;
-        extraGroups = ["wheel" "docker"];
-        shell = pkgs.fish;
-        hashedPasswordFile = config.sops.secrets.user_password.path;
-      };
-    };
-  };
-
   environment.systemPackages = with pkgs; [
-    curl
-    git
     vim
-    wget
     sops
   ];
 
