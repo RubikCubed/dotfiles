@@ -23,6 +23,7 @@
       devenv
       nixd
       nvd
+      wl-clipboard
     ];
   };
 
@@ -33,9 +34,6 @@
     helix = {
       enable = true;
       defaultEditor = true;
-      settings = {
-        theme = "gruvbox";
-      };
       package = inputs.helix.packages.x86_64-linux.default;
     };
 

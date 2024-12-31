@@ -4,6 +4,7 @@
 {
   pkgs,
   ghostty,
+  inputs,
   ...
 }: {
   imports = [
@@ -27,6 +28,10 @@
   programs.steam.enable = true;
 
   stylix = {
+    cursor = {
+      name = "Bibata-Original-Classic";
+      package = pkgs.bibata-cursors;
+    };
     fonts = {
       monospace = {
         package = pkgs.iosevka;
@@ -38,7 +43,10 @@
     image = ../../images/wallpaper.png;
   };
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.x86_64-linux.hyprland;
+  };
 
   services.xserver.videoDrivers = ["nvidia"];
 

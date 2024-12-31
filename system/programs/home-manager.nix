@@ -6,5 +6,10 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    sharedModules = [
+      {
+        stylix.enable = true;
+      }
+    ];
   };
 }
