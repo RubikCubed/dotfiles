@@ -24,7 +24,7 @@
         };
 
         clock = {
-          format = "{:%OI:%M %p}";
+          format = "{:%I:%M %p}";
           tooltip = false;
         };
         "clock#date" = {

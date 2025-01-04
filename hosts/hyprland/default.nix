@@ -3,7 +3,6 @@
 # and in the NixOS manual (accessible by running `nixos-help`).
 {
   pkgs,
-  ghostty,
   inputs,
   ...
 }: {
@@ -46,6 +45,7 @@
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.x86_64-linux.hyprland;
+    portalPackage = inputs.hyprland.packages.x86_64-linux.xdg-desktop-portal-hyprland;
   };
 
   services.xserver.videoDrivers = ["nvidia"];

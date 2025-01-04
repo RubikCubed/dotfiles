@@ -9,16 +9,8 @@
   in ''
     bind = $mod, ${key}, focusworkspaceoncurrentmonitor, ${ws}
     bind = $mod SHIFT, ${key}, movetoworkspacesilent, ${ws}
-
-    bind = $mod ALT, ${builtins.toString n}, focusmonitor, ${builtins.toString n}
-    bind = $mod CTRL ALT, ${builtins.toString n}, movecurrentworkspacetomonitor, ${builtins.toString n}
   '';
-  workspaces =
-    builtins.concatStringsSep "\n" (builtins.genList workspace 10)
-    + ''
-      bind = $mod, grave, togglespecialworkspace
-      bind = $mod SHIFT, grave, movetoworkspace, special
-    '';
+  workspaces = builtins.concatStringsSep "\n" (builtins.genList workspace 10);
 in {
   home.packages = [pkgs.grimblast];
 
@@ -42,11 +34,15 @@ in {
       bind = $mod, p, exec, wofi --show drun -a
       bind = $mod, space, layoutmsg, orientationcycle left top
       bind = $mod SHIFT, s, exec, grimblast --freeze copy area
+      bind = $mod, f, fullscreen
       bindm = $mod, mouse:272, movewindow
       ${workspaces}
+      workspace = 1,defaultName:www
+      workspace = 2,defaultName:dev
+      workspace = 3,defaultName:chat
 
-      monitor=DP-1, 1920x1080@144, 1920x0, 1
       monitor=DP-3, 1920x1080@144, 0x0, 1
+      monitor=DP-1, 1920x1080@144, 1920x0, 1
 
       misc {
         disable_hyprland_logo = true

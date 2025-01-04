@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix/release-24.11";
     helix.url = "github:helix-editor/helix";
     flake-parts.url = "github:hercules-ci/flake-parts";
     hyprland.url = "github:hyprwm/hyprland";
@@ -24,7 +24,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
+    ghostty.url = "github:ghostty-org/ghostty";
   };
 
   outputs = inputs:
