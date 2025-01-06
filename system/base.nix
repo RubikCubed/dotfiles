@@ -34,6 +34,7 @@
   environment.systemPackages = with pkgs; [
     vim
     sops
+    ghostty
   ];
 
   boot.loader.systemd-boot.configurationLimit = 10;

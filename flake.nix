@@ -23,8 +23,6 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    ghostty.url = "github:ghostty-org/ghostty";
   };
 
   outputs = inputs:

@@ -18,7 +18,6 @@
     scrot
     xclip
     libnotify
-    inputs.ghostty.packages.x86_64-linux.default
     openh264
   ];
 
