@@ -37,8 +37,8 @@ in {
       bind = $mod, f, fullscreen
       bindm = $mod, mouse:272, movewindow
       ${workspaces}
-      workspace = 1,defaultName:www
-      workspace = 2,defaultName:dev
+      workspace = 1,defaultName:dev
+      workspace = 2,defaultName:www
       workspace = 3,defaultName:chat
 
       monitor=DP-3, 1920x1080@144, 0x0, 1
