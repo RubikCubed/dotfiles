@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running `nixos-help`).
 {
   pkgs,
-  ghostty,
+  inputs,
   ...
 }: {
   imports = [
@@ -27,6 +27,10 @@
   programs.steam.enable = true;
 
   stylix = {
+    cursor = {
+      name = "Bibata-Original-Classic";
+      package = pkgs.bibata-cursors;
+    };
     fonts = {
       monospace = {
         package = pkgs.iosevka;
@@ -38,7 +42,11 @@
     image = ../../images/wallpaper.png;
   };
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.x86_64-linux.hyprland;
+    portalPackage = inputs.hyprland.packages.x86_64-linux.xdg-desktop-portal-hyprland;
+  };
 
   services.xserver.videoDrivers = ["nvidia"];
 
@@ -49,11 +57,6 @@
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  environment.systemPackages = with pkgs; [
-    ghostty.packages.x86_64-linux.default
-    xdg-utils
-  ];
 
   services.openssh.enable = true;
 

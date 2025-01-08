@@ -4,8 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
-    stylix.url = "github:danth/stylix/cf8b6e2d4e8aca8ef14b839a906ab5eb98b08561";
+    stylix.url = "github:danth/stylix/release-24.11";
     helix.url = "github:helix-editor/helix";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    hyprland.url = "github:hyprwm/hyprland";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -21,11 +23,14 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
   };
 
-  outputs = inputs: {
-    nixosConfigurations = import ./hosts inputs;
-  };
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
+
+      imports = [
+        ./hosts
+      ];
+    };
 }

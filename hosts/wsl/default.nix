@@ -1,6 +1,12 @@
-{modulesPath, ...}: {
+{
+  inputs,
+  modulesPath,
+  ...
+}: {
   imports = [
     "${modulesPath}/profiles/minimal.nix"
+    inputs.nixos-wsl.nixosModules.default
+    inputs.vscode-server.nixosModules.default
   ];
 
   wsl = {

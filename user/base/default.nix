@@ -1,6 +1,6 @@
 {
   pkgs,
-  helix,
+  inputs,
   ...
 }: {
   imports = [
@@ -23,6 +23,7 @@
       devenv
       nixd
       nvd
+      wl-clipboard
     ];
   };
 
@@ -33,10 +34,10 @@
     helix = {
       enable = true;
       defaultEditor = true;
+      package = inputs.helix.packages.x86_64-linux.default;
       settings = {
-        theme = "gruvbox";
+        editor.cursor-shape.insert = "bar";
       };
-      package = helix.packages.x86_64-linux.default;
     };
 
     direnv = {
