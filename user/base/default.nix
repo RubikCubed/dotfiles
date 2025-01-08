@@ -35,6 +35,9 @@
       enable = true;
       defaultEditor = true;
       package = inputs.helix.packages.x86_64-linux.default;
+      settings = {
+        editor.cursor-shape.insert = "bar";
+      };
     };
 
     direnv = {
