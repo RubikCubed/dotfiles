@@ -7,6 +7,7 @@
     ./fish.nix
     ./git.nix
     ./nvim.nix
+    ./starship.nix
   ];
 
   home = {
@@ -50,13 +51,6 @@
       enable = true;
       enableFishIntegration = true;
       fileWidgetOptions = ["--preview 'bat --color=always {}'"];
-    };
-
-    starship = {
-      enable = true;
-      settings = {
-        add_newline = false;
-      };
     };
 
     home-manager.enable = true;
