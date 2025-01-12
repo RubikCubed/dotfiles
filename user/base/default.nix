@@ -38,6 +38,7 @@
       package = inputs.helix.packages.x86_64-linux.default;
       settings = {
         editor.cursor-shape.insert = "bar";
+        editor.inline-diagnostics.cursor-line = "warning";
       };
     };
 

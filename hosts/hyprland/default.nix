@@ -34,7 +34,7 @@
     fonts = {
       monospace = {
         package = pkgs.iosevka;
-        name = "Iosevka";
+        name = "Iosevka Term";
       };
     };
     polarity = "dark";
