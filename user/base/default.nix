@@ -40,6 +40,7 @@
         {
           name = "nix";
           language-servers = ["nixd"];
+          formatter.command = "alejandra";
         }
       ];
       settings = {
