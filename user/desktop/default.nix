@@ -9,6 +9,7 @@
     ./vscode.nix
     ./dunst.nix
     ./qutebrowser.nix
+    ./ghostty.nix
   ];
 
   home.packages = with pkgs; [
@@ -23,8 +24,4 @@
 
   programs.wofi.enable = true;
   programs.firefox.enable = true;
-
-  xdg.configFile = {
-    "ghostty/config".text = builtins.readFile ./ghostty/config;
-  };
 }

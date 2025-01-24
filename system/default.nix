@@ -3,6 +3,7 @@ let
     ./base.nix
     #    ./network
     ./programs
+    ./programs/stylix.nix
     #    ./services
   ];
 

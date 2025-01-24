@@ -8,7 +8,7 @@
     useUserPackages = true;
     sharedModules = [
       {
-        stylix.enable = true;
+        #stylix.enable = true;
       }
     ];
   };
