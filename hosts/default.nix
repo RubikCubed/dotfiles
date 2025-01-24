@@ -54,11 +54,15 @@
       system = "x86_64-linux";
       modules = [
         ./wsl
+        ../system/base.nix
         {
-          home-manager.users.mate.imports = [
-            ../user/base
-            ../user/development
-          ];
+          home-manager = {
+            extraSpecialArgs = specialArgs;
+            users.mate.imports = [
+              ../user/base
+              ../user/development
+            ];
+          };
         }
       ];
     };

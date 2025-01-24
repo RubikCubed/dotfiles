@@ -69,7 +69,6 @@
 
   environment.systemPackages = with pkgs; [
     haskellPackages.xmobar
-    ghostty
     xdg-utils
   ];
 

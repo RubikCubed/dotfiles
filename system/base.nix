@@ -5,9 +5,9 @@
 }: {
   imports = [
     inputs.sops-nix.nixosModules.sops
-    inputs.stylix.nixosModules.stylix
     ./users.nix
     ./nix
+    ./programs/home-manager.nix
   ];
 
   time.timeZone = "Australia/Sydney";
@@ -34,7 +34,6 @@
   environment.systemPackages = with pkgs; [
     vim
     sops
-    ghostty
   ];
 
   boot.loader.systemd-boot.configurationLimit = 10;
