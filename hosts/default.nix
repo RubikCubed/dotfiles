@@ -61,6 +61,7 @@
             users.mate.imports = [
               ../user/base
               ../user/development
+              {programs.helix.settings.theme = "gruvbox";}
             ];
           };
         }
