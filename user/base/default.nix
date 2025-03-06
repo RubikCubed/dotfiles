@@ -36,9 +36,18 @@
       enable = true;
       defaultEditor = true;
       package = inputs.helix.packages.x86_64-linux.default;
+      languages.language = [
+        {
+          name = "nix";
+          language-servers = ["nixd"];
+          formatter.command = "alejandra";
+        }
+      ];
       settings = {
-        editor.cursor-shape.insert = "bar";
-        editor.inline-diagnostics.cursor-line = "warning";
+        editor = {
+          cursor-shape.insert = "bar";
+          end-of-line-diagnostics = "hint";
+        };
       };
     };
 

@@ -1,6 +1,6 @@
 {inputs, ...}: {
   imports = [
-    inputs.stylix.nixosModules.default
+    inputs.stylix.nixosModules.stylix
   ];
 
   home-manager.sharedModules = [
