@@ -14,7 +14,6 @@
     wslConf.automount.root = "/mnt";
     defaultUser = "mate";
     startMenuLaunchers = true;
-    nativeSystemd = true;
 
     # Enable integration with Docker Desktop (needs to be installed)
     #docker-desktop.enable = true;

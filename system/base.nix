@@ -19,7 +19,7 @@
   programs.nano.enable = false;
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["Iosevka"];})
+    pkgs.nerd-fonts.iosevka
   ];
 
   sops = {

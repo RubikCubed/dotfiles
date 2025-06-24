@@ -8,6 +8,7 @@
     ./git.nix
     ./nvim.nix
     ./starship.nix
+    ./ssh.nix
   ];
 
   home = {
