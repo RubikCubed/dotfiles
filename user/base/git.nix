@@ -2,7 +2,7 @@ _: {
   programs.git = {
     enable = true;
     userName = "RubikCubed";
-    userEmail = "spider@tilde.cafe";
+    userEmail = "91467402+RubikCubed@users.noreply.github.com";
 
     ignores = [".direnv/" ".envrc" "result" "result-doc"];
 
