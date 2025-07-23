@@ -1,15 +1,13 @@
 {
-  self,
   inputs,
+  self,
   ...
-}: {
-  flake.nixosConfigurations = let
-    inherit (inputs.nixpkgs.lib) nixosSystem;
-
-    inherit (import "${self}/system") desktop;
-
-    specialArgs = {inherit inputs self;};
-  in {
+}: let
+  inherit (inputs.nixpkgs.lib) nixosSystem;
+  inherit (import "${self}/system") desktop;
+  specialArgs = {inherit inputs self;};
+in {
+  nixosConfigurations = {
     # desktop
     affogato = nixosSystem {
       inherit specialArgs;
@@ -56,6 +54,7 @@
         ./wsl
         ../system/base.nix
         {
+          nixpkgs.overlays = [inputs.rust-overlay.overlays.default];
           home-manager = {
             extraSpecialArgs = specialArgs;
             users.mate.imports = [

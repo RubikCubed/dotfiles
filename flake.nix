@@ -6,8 +6,8 @@
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     stylix.url = "github:danth/stylix/release-25.05";
     helix.url = "github:helix-editor/helix";
-    flake-parts.url = "github:hercules-ci/flake-parts";
     hyprland.url = "github:hyprwm/hyprland";
+    rust-overlay.url = "github:oxalica/rust-overlay";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -25,12 +25,12 @@
     };
   };
 
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux"];
-
-      imports = [
-        ./hosts
-      ];
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    ...
+  }:
+    import ./hosts {
+      inherit inputs self;
     };
 }
