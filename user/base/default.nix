@@ -46,6 +46,7 @@
       ];
       settings = {
         editor = {
+          cursorline = true;
           cursor-shape.insert = "bar";
           end-of-line-diagnostics = "hint";
         };
