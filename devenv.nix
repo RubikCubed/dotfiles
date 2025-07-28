@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   languages.nix = {
     enable = true;
     lsp.package = pkgs.nixd;

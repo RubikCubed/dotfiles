@@ -5,7 +5,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -48,7 +49,7 @@
     portalPackage = inputs.hyprland.packages.x86_64-linux.xdg-desktop-portal-hyprland;
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     modesetting.enable = true;

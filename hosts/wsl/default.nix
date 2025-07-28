@@ -2,7 +2,8 @@
   inputs,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     "${modulesPath}/profiles/minimal.nix"
     inputs.nixos-wsl.nixosModules.default

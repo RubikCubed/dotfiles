@@ -2,17 +2,22 @@
   lib,
   pkgs,
   ...
-}: let
-  workspace = n: let
-    key = builtins.toString (lib.mod (n + 1) 10);
-    ws = builtins.toString (n + 1);
-  in ''
-    bind = $mod, ${key}, focusworkspaceoncurrentmonitor, ${ws}
-    bind = $mod SHIFT, ${key}, movetoworkspacesilent, ${ws}
-  '';
+}:
+let
+  workspace =
+    n:
+    let
+      key = builtins.toString (lib.mod (n + 1) 10);
+      ws = builtins.toString (n + 1);
+    in
+    ''
+      bind = $mod, ${key}, focusworkspaceoncurrentmonitor, ${ws}
+      bind = $mod SHIFT, ${key}, movetoworkspacesilent, ${ws}
+    '';
   workspaces = builtins.concatStringsSep "\n" (builtins.genList workspace 10);
-in {
-  home.packages = [pkgs.grimblast];
+in
+{
+  home.packages = [ pkgs.grimblast ];
 
   wayland.windowManager.hyprland = {
     enable = true;

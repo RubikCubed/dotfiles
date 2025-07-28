@@ -2,52 +2,54 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   haskell = pkgs.haskell.packages.ghc94;
-  packages = p:
-    with p; [
+  packages =
+    p: with p; [
       /*
-      adjunctions
-      aeson
-      async
-      base
-      bytestring
-      comonad
-      constraints
-      containers
-      contravariant
-      criterion
-      data-fix
-      distributive
-      effectful
-      exceptions
-      free
-      foldl
-      kan-extensions
-      lens
-      megaparsec
-      mtl
-      parser-combinators
+        adjunctions
+        aeson
+        async
+        base
+        bytestring
+        comonad
+        constraints
+        containers
+        contravariant
+        criterion
+        data-fix
+        distributive
+        effectful
+        exceptions
+        free
+        foldl
+        kan-extensions
+        lens
+        megaparsec
+        mtl
+        parser-combinators
       */
       pretty-simple
       /*
-      prettyprinter
-      primitive
-      profunctors
-      QuickCheck
-      random
-      recursion-schemes
-      semigroupoids
-      text-short
-      stm
-      template-haskell
-      text
-      text-show
-      transformers
-      unordered-containers
+        prettyprinter
+        primitive
+        profunctors
+        QuickCheck
+        random
+        recursion-schemes
+        semigroupoids
+        text-short
+        stm
+        template-haskell
+        text
+        text-show
+        transformers
+        unordered-containers
       */
     ];
-in {
+in
+{
   home.packages = with haskell; [
     #   cabal-fmt
     cabal-install
@@ -78,5 +80,5 @@ in {
   };
 
   home.sessionVariables.CABAL_DIR = "${config.xdg.dataHome}/cabal";
-  home.sessionPath = ["${config.xdg.dataHome}/cabal/bin"];
+  home.sessionPath = [ "${config.xdg.dataHome}/cabal/bin" ];
 }

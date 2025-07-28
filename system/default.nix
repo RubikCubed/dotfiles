@@ -7,11 +7,10 @@ let
     #    ./services
   ];
 
-  laptop =
-    desktop
-    ++ [
-      # bluetooth, wifi, backlight, power, etc
-    ];
-in {
+  laptop = desktop ++ [
+    # bluetooth, wifi, backlight, power, etc
+  ];
+in
+{
   inherit desktop;
 }

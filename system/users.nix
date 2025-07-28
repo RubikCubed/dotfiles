@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   users = {
     mutableUsers = false;
     users = {
@@ -11,7 +12,10 @@
         isNormalUser = true;
         shell = pkgs.fish;
         hashedPasswordFile = config.sops.secrets.user_password.path;
-        extraGroups = ["wheel" "docker"];
+        extraGroups = [
+          "wheel"
+          "docker"
+        ];
       };
     };
   };

@@ -25,11 +25,12 @@
     };
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    ...
-  }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      ...
+    }:
     import ./hosts {
       inherit inputs self;
     };

@@ -4,7 +4,12 @@ _: {
     userName = "RubikCubed";
     userEmail = "91467402+RubikCubed@users.noreply.github.com";
 
-    ignores = [".direnv/" ".envrc" "result" "result-doc"];
+    ignores = [
+      ".direnv/"
+      ".envrc"
+      "result"
+      "result-doc"
+    ];
 
     extraConfig = {
       init.defaultBranch = "main";

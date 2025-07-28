@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     ./fish.nix
     ./git.nix
@@ -40,7 +41,7 @@
       languages.language = [
         {
           name = "nix";
-          language-servers = ["nixd"];
+          language-servers = [ "nixd" ];
           formatter.command = "alejandra";
         }
       ];
@@ -62,7 +63,7 @@
     fzf = {
       enable = true;
       enableFishIntegration = true;
-      fileWidgetOptions = ["--preview 'bat --color=always {}'"];
+      fileWidgetOptions = [ "--preview 'bat --color=always {}'" ];
     };
 
     home-manager.enable = true;
