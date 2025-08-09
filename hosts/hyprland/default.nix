@@ -29,6 +29,7 @@
 
   stylix = {
     cursor = {
+      size = 24;
       name = "Bibata-Original-Classic";
       package = pkgs.bibata-cursors;
     };
