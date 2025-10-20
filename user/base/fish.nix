@@ -3,8 +3,8 @@ _: {
     enable = true;
     interactiveShellInit = ''
       set fish_greeting
-      bind -k nul accept-autosuggestion
-      bind \e\[1\;3A 'cd ..; fish_prompt'
+      bind ctrl-space accept-autosuggestion
+      #bind alt-up 'cd ..; fish_prompt'
     '';
     shellAbbrs = {
       nr = {

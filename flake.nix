@@ -2,9 +2,9 @@
   description = "oldmate's NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
-    stylix.url = "github:danth/stylix/release-25.05";
+    stylix.url = "github:nix-community/stylix";
     helix.url = "github:helix-editor/helix";
     hyprland.url = "github:hyprwm/hyprland";
     rust-overlay.url = "github:oxalica/rust-overlay";
@@ -20,7 +20,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
