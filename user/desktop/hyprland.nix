@@ -23,7 +23,7 @@ in
     enable = true;
     extraConfig = ''
       $mod = SUPER
-      bind = $mod SHIFT, return, exec, ghostty
+      bind = $mod SHIFT, return, exec, ghostty +new-window
       bind = $mod CTRL, return, exec, firefox
       bind = $mod SHIFT, c, killactive
       bind = $mod SHIFT, q, exit
